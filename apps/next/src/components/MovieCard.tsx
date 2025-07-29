@@ -1,15 +1,7 @@
+import {Movie} from '../data/movies';
+import Link from 'next/link';
 
-interface MovieCardProps{
-    title: string;
-    director: string;
-    year: number;
-    genre: string;
-    rating: number;
-    description?: string;
-}
-
-
-export default function MovieCard( props : MovieCardProps){
+export default function MovieCards( props : Movie){
     return(
         <div className="movie-card p-4 space-y-2 border rounded shadow">
             <h2>タイトル: {props.title}</h2>
@@ -19,7 +11,7 @@ export default function MovieCard( props : MovieCardProps){
             <p>評価: ⭐ {props.rating}</p>
             <p>説明: {props.description}</p>
             <div>
-                <button  className="btn">詳細を見る</button>
+                <Link href={`/movies/${props.id}`} className="btn">詳細を見る</Link>
                 <button  className="btn">♡ お気に入り</button>
             </div>
         </div>
